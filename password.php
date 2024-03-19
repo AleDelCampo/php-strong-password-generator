@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 if(isset($_SESSION['randomPassword'])) {
@@ -21,11 +20,14 @@ if(isset($_SESSION['randomPassword'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP-Password-Generated</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Password Generata:</h1>
-    <p><?php echo $randomPassword ?></p>
+    <div id="pass-cnt">
+        <h1>Password Generata:</h1>
+        <p id="password"><?php echo $randomPassword ?></p>
+    </div>
 
 </body>
 </html>

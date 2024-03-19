@@ -2,6 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
     color: black;
     font-weight: bold;
+}
+
+#pass-cnt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+}
+
+#password {
+    color: greenyellow;
+}
+
+h1 {
+    margin-bottom: 40px;
+}
+
+.form-check-input {
+    cursor: pointer;
 }

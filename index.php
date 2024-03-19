@@ -1,20 +1,24 @@
 <?php
-
 session_start();
 
 include 'functions.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST['passLength'])) {
-        $passLength = $_POST['passLength'];
+    if (isset ($_POST['passLength'])) {
 
-        $randomPassword = generateRandomPassword($passLength);
-  
+        $passLength = $_POST['passLength'];
+        $useNumbers = isset ($_POST['useNumbers']) ? true : false;
+        $useLetters = isset ($_POST['useLetters']) ? true : false;
+        $useSymbols = isset ($_POST['useSymbols']) ? true : false;
+        $allowRepeating = isset ($_POST['allowRepeating']) ? true : false;
+
+        $randomPassword = generateRandomPassword($passLength, $useNumbers, $useLetters, $useSymbols, $allowRepeating);
+
         $_SESSION['randomPassword'] = $randomPassword;
 
         header("Location: password.php");
-        exit(); 
+        exit();
     }
 }
 
@@ -34,17 +38,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <form class="container" method="POST">
+    <form class="container d-flex flex-column align-items-center" method="POST">
 
-        <div class="form-group mt-2">
-
-            <label for="vote" class="mb-2">Quanto vuoi sia lunga la tua password??:</label>
-
+        <div class="form-group mt-2 mb-4">
+            <label for="passLength" class="mb-2">Quanto vuoi sia lunga la tua password??:</label>
             <input type="number" min="1" max="20" id="passLength" name="passLength" placeholder="" required>
-
         </div>
-
-        <button type="submit" class="btn border-black">Submit</button>
+        <div class="d-flex mb-4 gap-4">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="useNumbers" name="useNumbers" value="1">
+                <label class="form-check-label" for="useNumbers">Usa Numeri</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="useLetters" name="useLetters" value="1" checked>
+                <label class="form-check-label" for="useLetters">Usa Lettere</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="useSymbols" name="useSymbols" value="1">
+                <label class="form-check-label" for="useSymbols">Usa Simboli</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="allowRepeating" name="allowRepeating" value="1">
+                <label class="form-check-label" for="allowRepeating">Usa Ripetizioni</label>
+            </div>
+        </div>
+        <button type="submit" class="btn border-black w-25">Genera!!</button>
 
     </form>
 
