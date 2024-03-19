@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="form-check-label" for="allowRepeating">Usa Ripetizioni</label>
             </div>
         </div>
-        <button type="submit" class="btn border-black w-25">Genera!!</button>
+        <button type="submit" class="border-black w-25">Genera!!</button>
 
     </form>
 
