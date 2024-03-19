@@ -1,37 +1,3 @@
-<?php
-
-function generateRandomPassword($length) {
-
-
-    $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+{}|:<>?';
-
-    $charsLength = strlen($chars);
-
-    $password = '';
-
-    for ($i = 0; $i < $length; $i++) {
-        $randomChar = $chars[rand(0, $charsLength - 1)];
-        
-        $password .= $randomChar;
-    }
-
-    return $password;
-}
-
-
-if (isset($_GET['passLength'])) {
-
-    $passLength = $_GET['passLength'];
-
-    $randomPassword = generateRandomPassword($passLength);
-
-} else {
-
-    $randomPassword = generateRandomPassword(8);
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,6 +20,8 @@ if (isset($_GET['passLength'])) {
 
             <input type="number" id="passLength" name="passLength" placeholder="">
             
+            <?php include 'functions.php'; ?>
+
             <?php echo $randomPassword ?>
 
         </div>
