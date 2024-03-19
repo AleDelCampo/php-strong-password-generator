@@ -26,6 +26,7 @@ if(isset($_SESSION['randomPassword'])) {
 
     <div id="pass-cnt">
         <h1>Password Generata:</h1>
+        <small>😈😈(Per renderla almeno un briciolo segreta mi spiace ma dovrai catturarla col mouse e infastidirti un po'....)😈😈</small>
         <p id="password"><?php echo $randomPassword ?></p>
     </div>
 
