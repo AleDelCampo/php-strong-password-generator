@@ -10,7 +10,7 @@ function generateRandomPassword($length) {
     $password = '';
 
     for ($i = 0; $i < $length; $i++) {
-        $randomChar = $chars[rand(0, $charsLength - 1)];
+        $randomChar = $chars[rand(0, $charsLength)];
         
         $password .= $randomChar;
     }
